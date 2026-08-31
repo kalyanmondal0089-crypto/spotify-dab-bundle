@@ -4,13 +4,7 @@ bundle:
   name: spotify_dab
   uuid: 3a5d94c4-508c-4009-81e8-8c90ee3d0527
 
-include:
-  - resources/*.yml
 
-artifacts:
-  python_artifact:
-    type: whl
-    build: uv build --wheel
 
 # Variable declarations. These variables are assigned in the dev/prod targets below.
 variables:
