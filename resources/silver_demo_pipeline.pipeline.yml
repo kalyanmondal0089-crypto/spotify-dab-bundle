@@ -1,0 +1,22 @@
+# Pipeline for silver demo streaming tables
+
+resources:
+  pipelines:
+    silver_demo_pipeline:
+      name: silver_demo_pipeline
+      catalog: ${var.catalog}
+      schema: ${var.schema}
+      serverless: true
+      root_path: "../src/delta_live_table/silver_demo_pipeline"
+
+      libraries:
+        - glob:
+            include: ../src/delta_live_table/silver_demo_pipeline/tutorial/**
+
+      environment:
+        dependencies:
+          - --editable ${workspace.file_path}
+
+      continuous: false
+      development: true
+      channel: current
